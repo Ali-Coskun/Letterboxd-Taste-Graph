@@ -1,0 +1,43 @@
+# ---- Secrets / env ----
+.env
+.env.*
+*.env
+*.pem
+*.key
+
+# ---- Python / virtualenv ----
+.venv/
+venv/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ---- Packaging / build ----
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ---- Test / coverage ----
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# ---- IDE / OS junk ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ---- Logs / temp ----
+*.log
+*.tmp
+
+# ---- Database files (if you ever use SQLite locally) ----
+*.db
+*.sqlite
+*.sqlite3
