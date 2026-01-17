@@ -1,7 +1,7 @@
 from pathlib import Path
 from db.connect import get_conn
 
-def run_schema(schema_path: str = "schema.sql"):
+def run_schema(schema_path: str = "sql/schema.sql"):
     # Always resolve schema.sql relative to the project root
     project_root = Path(__file__).resolve().parent.parent  # .../db -> project root
     full_path = project_root / schema_path                 # .../schema.sql

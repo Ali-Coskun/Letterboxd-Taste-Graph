@@ -25,7 +25,6 @@ def get_user_film(username: str):
     for film in films:
         user_film.append(
             {
-                "display_name": film.get("display_name"),
                 "movie_id": film.get("movie_id"),
                 "watched": True,
                 "in_watchlist": False,
@@ -39,7 +38,6 @@ def get_user_film(username: str):
     for film in watchlist:
         user_film.append(
             {
-                "display_name": film.get("display_name"),
                 "movie_id": film.get("movie_id"),
                 "watched": False,
                 "in_watchlist": True,
