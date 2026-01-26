@@ -121,12 +121,28 @@ CREATE TABLE IF NOT EXISTS film_crew (
 );
 
 -- ============================================================
+-- Mutual edges (directed: username -> mutual_username)
+-- ============================================================
+
+CREATE TABLE IF NOT EXISTS user_mutuals (
+    username TEXT NOT NULL REFERENCES users(username) ON DELETE CASCADE,
+    mutual_username TEXT NOT NULL REFERENCES users(username) ON DELETE CASCADE,
+    fetched_at TIMESTAMP,
+    PRIMARY KEY (username, mutual_username),
+    CHECK (username <> mutual_username) -- Just makes sure that username != mutual usernam
+);
+
+-- ============================================================
 -- Indexes (grouped by feature area)
 -- ============================================================
 
 -- User films lookups
 CREATE INDEX IF NOT EXISTS idx_user_films_username ON user_films(username);
 CREATE INDEX IF NOT EXISTS idx_user_films_movie_id ON user_films(movie_id);
+
+-- User mutuals
+CREATE INDEX IF NOT EXISTS idx_user_mutuals_username ON user_mutuals(username);
+CREATE INDEX IF NOT EXISTS idx_user_mutuals_mutual_username ON user_mutuals(mutual_username);
 
 -- Film search / filtering
 CREATE INDEX IF NOT EXISTS idx_films_film_name ON films(film_name);
